@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gorman &amp; Duncan Economics Ltd</title>
+<meta name="description" content="Gorman &amp; Duncan Economics Ltd — independent economic, social science and statistical consultancy." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f1;
+    --surface: #ffffff;
+    --ink: #1d2230;
+    --ink-muted: #5c6270;
+    --accent: #c2872e;
+    --line: #dad6cc;
+    --max-width: 920px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+
+  /* ---------- Nav ---------- */
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(247, 245, 241, 0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    transition: color 0.15s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5.5rem 1.5rem 6rem;
+    overflow: hidden;
+  }
+
+  .hero-graphic {
+    position: absolute;
+    right: -40px;
+    top: 30px;
+    width: 380px;
+    max-width: 60%;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  .hero-graphic svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 36rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .hero .lede {
+    margin-top: 1.4rem;
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    max-width: 32rem;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 2.2rem;
+    padding: 0.75rem 1.6rem;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.88rem;
+    letter-spacing: 0.03em;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .cta:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  /* ---------- Sections ---------- */
+
+  .section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-alt {
+    background: var(--surface);
+    max-width: 100%;
+  }
+
+  .section-alt > .section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .section h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 2.4rem;
+    max-width: 30rem;
+  }
+
+  /* ---------- About / Bios ---------- */
+
+  .bios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .bio h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .bio .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0.4rem 0 1rem;
+  }
+
+  .bio p {
+    color: var(--ink-muted);
+    margin: 0 0 0.9rem;
+  }
+
+  /* ---------- Services ---------- */
+
+  .services {
+    display: grid;
+    gap: 2.2rem;
+  }
+
+  .service {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 1.5rem;
+    padding-bottom: 2.2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .service:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .service h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  .service p {
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  /* ---------- Selected work ---------- */
+
+  .work-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .work-num {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .work-item h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    display: inline;
+  }
+
+  .work-item .meta {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-block h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-block p,
+  .contact-block a {
+    color: var(--ink-muted);
+  }
+
+  .contact-block a {
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 3px;
+  }
+
+  .contact-block a:hover {
+    color: var(--ink);
+    text-decoration-color: var(--accent);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--line);
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 760px) {
+    .hero-graphic { display: none; }
+    .bios,
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .service {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+    .nav-links { gap: 1.1rem; }
+    .nav-links a { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">G &amp; D</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Selected work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-graphic" aria-hidden="true">
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="10,170 50,150 90,160 130,110 170,120 210,60 250,75 290,30"
+                fill="none" stroke="#1d2230" stroke-width="1.5" stroke-opacity="0.25" />
+      <g fill="#c2872e" fill-opacity="0.7">
+        <circle cx="10" cy="170" r="3" />
+        <circle cx="50" cy="150" r="3" />
+        <circle cx="90" cy="160" r="3" />
+        <circle cx="130" cy="110" r="3" />
+        <circle cx="170" cy="120" r="3" />
+        <circle cx="210" cy="60" r="3" />
+        <circle cx="250" cy="75" r="3" />
+        <circle cx="290" cy="30" r="3" />
+      </g>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">[ gorman &amp; duncan economics ltd ]</p>
+    <h1>Independent economic and statistical analysis you can act on.</h1>
+    <p class="lede">
+      We're a small consultancy run by two academic economists, bringing
+      rigorous causal inference, applied econometrics and policy evaluation
+      to government, industry and the third sector.
+    </p>
+    <a class="cta" href="#contact">Get in touch &rarr;</a>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <p class="eyebrow">[ about ]</p>
+  <h2>Two academics, one practice.</h2>
+  <div class="bios">
+    <article class="bio">
+      <h3>Dr. [First name] Gorman</h3>
+      <p class="role">Director — [research area, e.g. labour economics]</p>
+      <p>
+        [A short bio: academic role/affiliation, areas of expertise, and a
+        sentence on the kind of consulting or contract work you're best
+        placed to take on. Mention relevant qualifications, e.g. PhD in
+        Economics, and any notable publications or evaluations.]
+      </p>
+      <p>
+        [Optional second paragraph — sector experience, methods specialisms
+        such as difference-in-differences or survey design, and any policy
+        or government engagement.]
+      </p>
+    </article>
+    <article class="bio">
+      <h3>Dr. [First name] Duncan</h3>
+      <p class="role">Director — [research area, e.g. education policy]</p>
+      <p>
+        [A short bio for the second director, following the same structure —
+        academic background, specialisms, and the kind of projects they
+        lead on.]
+      </p>
+      <p>
+        [Optional second paragraph — complementary expertise to the first
+        bio, so readers can see the combined skillset of the practice.]
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="services" class="section-alt">
+  <div class="section-inner">
+    <p class="eyebrow">[ services ]</p>
+    <h2>What we do</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Policy evaluation</h3>
+        <p>
+          Designing and delivering robust impact evaluations — including
+          difference-in-differences, matching and other quasi-experimental
+          methods — to assess what's working and why.
+        </p>
+      </div>
+      <div class="service">
+        <h3>Applied econometrics</h3>
+        <p>
+          Analysis of administrative, survey and linked datasets to answer
+          specific policy or business questions, with clear, decision-ready
+          reporting.
+        </p>
+      </div>
+      <div class="service">
+        <h3>Data &amp; survey design</h3>
+        <p>
+          Advice on study design, sampling, survey instruments and data
+          documentation, including support for new or under-used datasets.
+        </p>
+      </div>
+      <div class="service">
+        <h3>Expert review &amp; advisory</h3>
+        <p>
+          Independent review of research, methodology and evidence claims —
+          drawing on academic peer-review experience for organisations that
+          need a second opinion.
+        </p>
+      </div>
+      <div class="service">
+        <h3>Training &amp; workshops</h3>
+        <p>
+          Practical training in causal inference and applied econometrics
+          for analysts and researchers, tailored to your team's data and
+          tools.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section">
+  <p class="eyebrow">[ selected work ]</p>
+  <h2>Recent projects &amp; publications</h2>
+  <ol class="work-list">
+    <li class="work-item">
+      <span class="work-num">[1]</span>
+      <div>
+        <h3>[Project or paper title]</h3>
+        <span class="meta">[Client / journal, year — one line on what it covered]</span>
+      </div>
+    </li>
+    <li class="work-item">
+      <span class="work-num">[2]</span>
+      <div>
+        <h3>[Project or paper title]</h3>
+        <span class="meta">[Client / journal, year — one line on what it covered]</span>
+      </div>
+    </li>
+    <li class="work-item">
+      <span class="work-num">[3]</span>
+      <div>
+        <h3>[Project or paper title]</h3>
+        <span class="meta">[Client / journal, year — one line on what it covered]</span>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="contact" class="section">
+  <p class="eyebrow">[ contact ]</p>
+  <h2>Get in touch</h2>
+  <div class="contact-grid">
+    <div class="contact-block">
+      <h3>Email</h3>
+      <p><a href="mailto:hello@gormanduncan.com">hello@gormanduncan.com</a></p>
+    </div>
+    <div class="contact-block">
+      <h3>Based in</h3>
+      <p>United Kingdom — available for remote and on-site work.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Gorman &amp; Duncan Economics Ltd. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
